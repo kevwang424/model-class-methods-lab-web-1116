@@ -4,3 +4,9 @@
 require File.expand_path('../config/application', __FILE__)
 
 ArelLab::Application.load_tasks
+
+desc 'Enter a console'
+task :console do
+  ActiveRecord::Base.logger = Logger.new(STDOUT)
+  Pry.start
+end
